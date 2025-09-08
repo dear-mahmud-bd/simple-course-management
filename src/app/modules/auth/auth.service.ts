@@ -9,7 +9,7 @@ const createAdmin = async (payload: IUser) => {
   if (await User.isEmailExist(payload.email)) {
     throw new AppError(
       httpStatus.BAD_REQUEST,
-      'An Admin already created, Email: dearmahmud.bd@gmail.com, Initial Password: 12345678',
+      'An Admin already created, Email: dearmahmud.bd@gmail.com, Initial Password: 12345678, Please change the password',
     );
   }
   const result = await User.create(payload);

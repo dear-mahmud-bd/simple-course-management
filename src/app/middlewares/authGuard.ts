@@ -24,7 +24,7 @@ export const AuthGuard = (...userRole: TUserRole[]) => {
     }
 
     if (userRole && !userRole.includes(decoded.role)) {
-      throw new AppError(httpStatus.FORBIDDEN, 'You are not authorized to Access this Content');
+      throw new AppError(httpStatus.FORBIDDEN, 'You are not authorized to perform this action');
     }
 
     const { _id, name, email, role } = user;
