@@ -5,6 +5,20 @@ import { User } from '../user/user.model';
 import httpStatus from 'http-status';
 import { createToken } from './auth.utils';
 
+const createAdmin = async (payload: IUser) => {
+  if (await User.isEmailExist(payload.email)) {
+    throw new AppError(
+      httpStatus.BAD_REQUEST,
+      'An Admin already created, Email: dearmahmud.bd@gmail.com, Initial Password: 12345678',
+    );
+  }
+  const result = await User.create(payload);
+  if (!result) {
+    throw new AppError(httpStatus.INTERNAL_SERVER_ERROR, 'Admin Not Created');
+  }
+  return result;
+};
+
 const registerUser = async (payload: IUser) => {
   if (await User.isEmailExist(payload.email)) {
     throw new AppError(
@@ -73,6 +87,7 @@ const loginUser = async (payload: IUser) => {
 };
 
 export const AuthServices = {
+  createAdmin,
   registerUser,
   loginUser,
 };

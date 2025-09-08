@@ -12,7 +12,7 @@ export type ILoginUser = {
 };
 
 export interface AuthenticatedUser {
-  _id: string;
+  _id?: string;
   name: string;
   email: string;
   role: UserType;

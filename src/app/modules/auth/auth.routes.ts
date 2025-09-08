@@ -8,6 +8,7 @@ import { USER_ROLE } from '../user/user.constant';
 
 const router = express.Router();
 
+router.post('/create-admin', AuthControllers.createAdmin);
 router.post(
   '/register',
   validateRequest(AuthValidation.registerValidationSchema),
