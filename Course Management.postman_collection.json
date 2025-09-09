@@ -39,7 +39,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Md. Mahmudul Hasan\",\r\n    \"email\": \"dearmahmud.bd@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Ami Topu\",\r\n    \"email\": \"ami.topu@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -401,7 +401,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlYXIubWFobXVkdWxAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NTczOTcxMzgsImV4cCI6MTc1ODI2MTEzOH0.uKUbTo_upVeeU7U9J5rsNsKUEeh_NagiyT6598yMxac",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFtaS50b3B1QGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzU3Mzk3NTU2LCJleHAiOjE3NTgyNjE1NTZ9.PosX-6Ou4x7IVwvdkGa3ceQUbmAl4ckpOKkalAN8n8I",
 									"type": "string"
 								}
 							]
@@ -438,14 +438,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{local-url}}/api/purchase/my",
+							"raw": "{{local-url}}/api/purchase/all-purchase",
 							"host": [
 								"{{local-url}}"
 							],
 							"path": [
 								"api",
 								"purchase",
-								"my"
+								"all-purchase"
 							]
 						}
 					},

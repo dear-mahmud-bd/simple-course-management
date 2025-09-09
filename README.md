@@ -164,14 +164,14 @@ src/
 #### Get User Profile Details
 
 - Method: **POST** `/api/auth/my-profile`
-- Request Header : **Authorization : Bearer <token>**
+- Request Header : **Authorization : Bearer token **
 
 ---
 
 #### Change User Password
 
 - Method: **PATCH** `/api/auth/change-password`
-- Request Header : **Authorization : Bearer <token>**
+- Request Header : **Authorization : Bearer token**
 - Request Body Example:
   ```json
   {
@@ -193,7 +193,7 @@ src/
 #### Create a Course
 
 - Method: **POST** `/api/course/create`
-- Request Header (use admin accessToken) : **Authorization : Bearer <token>**
+- Request Header (use admin accessToken) : **Authorization : Bearer token**
 - Request Body Example:
   ```json
   {
@@ -208,7 +208,7 @@ src/
 #### Update a Course
 
 - Method: **PUT** `/api/course/:id`
-- Request Header (use admin accessToken) : **Authorization : Bearer <token>**
+- Request Header (use admin accessToken) : **Authorization : Bearer token**
 - Request Body Example:
   ```json
   {
@@ -223,28 +223,28 @@ src/
 #### Delete Course
 
 - Method: **DELETE** ` /api/course/:id`
-- Request Header (use admin accessToken): **Authorization : Bearer <token>**
+- Request Header (use admin accessToken): **Authorization : Bearer token**
 
 ---
 
 ### Get All Course
 
 - **Method:** **GET** `/api/course`
-- Request Header : **Authorization : Bearer <token>**
+- Request Header : **Authorization : Bearer token**
 
 ---
 
 ### Get a Single Course
 
 - **Method:** **GET** `/api/course/:courseId`
-- Request Header : **Authorization : Bearer <token>**
+- Request Header : **Authorization : Bearer token**
 
 ### **Purchase System**
 
 #### Buy a Course
 
 - Method: **POST** `/api/purchase/buy`
-- Request Header (Only User accessToken): **Authorization : Bearer <token>**
+- Request Header (Only User accessToken): **Authorization : Bearer token**
 - Request Body Example:
   ```json
   {
@@ -258,14 +258,14 @@ src/
 #### My Purchasing Courses
 
 - Method: **GET** `/api/purchase/my`
-- Request Header (Only User accessToken) : **Authorization : Bearer <token>**
+- Request Header (Only User accessToken) : **Authorization : Bearer token**
 
 ---
 
 #### All Purchasing Courses From Admin
 
 - Method: **GET** `/api/purchase/all-purchase`
-- Request Header (Only Admin accessToken) : **Authorization : Bearer <token>**
+- Request Header (Only Admin accessToken) : **Authorization : Bearer token**
 
 ---
 
