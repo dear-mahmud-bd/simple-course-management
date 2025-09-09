@@ -25,7 +25,22 @@ const deleteCourseFromDB = async (courseId: string) => {
   return course;
 };
 
+const getAllCoursesFromDB = async () => {
+  const courses = await Course.find({ isDeleted: false });
+  return courses;
+};
+
+const getASingleCourseFromDB = async (courseId: string) => {
+  const course = await Course.findById(courseId);
+  if (!course || course.isDeleted) {
+    throw new AppError(httpStatus.NOT_FOUND, 'Course not found');
+  }
+  return course;
+};
+
 export const CourseServices = {
   createCourseToDB,
   deleteCourseFromDB,
+  getAllCoursesFromDB,
+  getASingleCourseFromDB,
 };

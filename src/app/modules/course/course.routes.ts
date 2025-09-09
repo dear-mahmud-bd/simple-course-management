@@ -13,11 +13,21 @@ router.post(
   AuthGuard(USER_ROLE.admin),
   CourseControllers.createCourse,
 );
-
 router.delete(
   '/:id',
   AuthGuard(USER_ROLE.admin),
   CourseControllers.deleteCourse,
+);
+router.get(
+  '/',
+  AuthGuard(USER_ROLE.admin, USER_ROLE.user),
+  CourseControllers.getAllCourses,
+);
+
+router.get(
+  '/:id',
+  AuthGuard(USER_ROLE.admin, USER_ROLE.user),
+  CourseControllers.getASingleCourse,
 );
 
 export const CourseRoutes = router;
