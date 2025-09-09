@@ -14,6 +14,27 @@ const createCourseToDB = async (courseData: ICourse) => {
   return course;
 };
 
+const updateCourseToDB = async (
+  courseId: string,
+  updateData: Partial<ICourse>,
+) => {
+  if (updateData.title && (await Course.isTitleExist(updateData.title))) {
+    throw new AppError(
+      httpStatus.BAD_REQUEST,
+      'A course with this title already exists.',
+    );
+  }
+  const updatedCourse = await Course.findByIdAndUpdate(
+    courseId,
+    { $set: updateData },
+    { new: true, runValidators: true },
+  );
+  if (!updatedCourse || updatedCourse.isDeleted) {
+    throw new AppError(httpStatus.NOT_FOUND, 'Course not found');
+  }
+  return updatedCourse;
+};
+
 const deleteCourseFromDB = async (courseId: string) => {
   const course = await Course.findById(courseId);
   if (!course || course.isDeleted) {
@@ -40,6 +61,7 @@ const getASingleCourseFromDB = async (courseId: string) => {
 
 export const CourseServices = {
   createCourseToDB,
+  updateCourseToDB,
   deleteCourseFromDB,
   getAllCoursesFromDB,
   getASingleCourseFromDB,

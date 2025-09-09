@@ -13,6 +13,12 @@ router.post(
   AuthGuard(USER_ROLE.admin),
   CourseControllers.createCourse,
 );
+router.put(
+  '/:id',
+  validateRequest(CourseValidation.updateCourseValidationSchema),
+  AuthGuard(USER_ROLE.admin),
+  CourseControllers.updateCourse,
+);
 router.delete(
   '/:id',
   AuthGuard(USER_ROLE.admin),
