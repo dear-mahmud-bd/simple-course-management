@@ -5,7 +5,7 @@
 ## 🖋 Features
 
 ### User-Friendly course Management
-- **Create, Update, Delete course**: Effortlessly manage course using intuitive APIs.   
+- **Create, Read, Update, Delete course (CRUD)**: Effortlessly manage course using intuitive APIs.   
 
 ### Role-Based Access Control
 - **Admin**: Full access to manage course and perform administrative tasks.  
@@ -193,6 +193,21 @@ src/
 #### Create a Course
 
 - Method: **POST** `/api/course/create`
+- Request Header (use admin accessToken) : **Authorization : Bearer <token>**
+- Request Body Example:
+  ```json
+  {
+    "title": "Full Stack Web Development",
+    "description": "A comprehensive course covering frontend, backend, and database development using modern technologies.",
+    "price": 299,
+    "instructor": "John Doe"
+  }
+  ```
+---
+
+#### Update a Course
+
+- Method: **PUT** `/api/course/:id`
 - Request Header (use admin accessToken) : **Authorization : Bearer <token>**
 - Request Body Example:
   ```json

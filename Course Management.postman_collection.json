@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "476c4df0-8ae0-4073-a921-849acfd96a8e",
+		"name": "Course Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39996075"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "hit one time to create admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"dear.mahmudul@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}"
+						},
+						"url": {
+							"raw": "{{local-url}}/api/auth/create-admin",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"create-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Md. Mahmudul Hasan\",\r\n    \"email\": \"dearmahmud.bd@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/api/auth/register",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"dear.mahmudul@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/api/auth/login",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login-first-then-logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"dear.mahmudul@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/api/auth/logout",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlYXIubWFobXVkdWxAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NTczNjM1ODIsImV4cCI6MTc1ODIyNzU4Mn0.0u_HQU6UOTIrMoqnBjysAxmA3khGGrCaWF-ceRWkHDY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-url}}/api/auth/my-profile",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"my-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlYXIubWFobXVkdWxAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NTczNjM1ODIsImV4cCI6MTc1ODIyNzU4Mn0.0u_HQU6UOTIrMoqnBjysAxmA3khGGrCaWF-ceRWkHDY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"dear.mahmudul@gmail.com\",\r\n    \"oldPassword\": \"12345678\",\r\n    \"newPassword\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/api/auth/change-password",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "create course by admin token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlYXJtYWhtdWQuYmRAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU3MzY3OTUyLCJleHAiOjE3NTgyMzE5NTJ9.cjxPJXm4LIebd046JHzd1EAxSyfpvP7hpjT8ACetCfU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Full Stack Web Development\",\r\n  \"description\": \"A comprehensive course covering frontend, backend, and database development using modern technologies.\",\r\n  \"price\": 299,\r\n  \"instructor\": \"John Doe\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/api/course/create",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update course by admin token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlYXJtYWhtdWQuYmRAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU3MzY3OTUyLCJleHAiOjE3NTgyMzE5NTJ9.cjxPJXm4LIebd046JHzd1EAxSyfpvP7hpjT8ACetCfU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Backend Development\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/api/course/68bf4fbc43e9487c9d55e490",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"68bf4fbc43e9487c9d55e490"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete course by admin token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlYXJtYWhtdWQuYmRAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU3MzY3OTUyLCJleHAiOjE3NTgyMzE5NTJ9.cjxPJXm4LIebd046JHzd1EAxSyfpvP7hpjT8ACetCfU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local-url}}/api/course/68bf4fcd43e9487c9d55e498",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"68bf4fcd43e9487c9d55e498"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all courses with user+admin token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlYXJtYWhtdWQuYmRAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU3MzY3OTUyLCJleHAiOjE3NTgyMzE5NTJ9.cjxPJXm4LIebd046JHzd1EAxSyfpvP7hpjT8ACetCfU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-url}}/api/course",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single course with user+admin token Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlYXJtYWhtdWQuYmRAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU3MzY3OTUyLCJleHAiOjE3NTgyMzE5NTJ9.cjxPJXm4LIebd046JHzd1EAxSyfpvP7hpjT8ACetCfU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-url}}/api/course/68bf4fbc43e9487c9d55e490",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"course",
+								"68bf4fbc43e9487c9d55e490"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Purchase",
+			"item": [
+				{
+					"name": "purchase a course with user token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlYXIubWFobXVkdWxAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NTczOTcxMzgsImV4cCI6MTc1ODI2MTEzOH0.uKUbTo_upVeeU7U9J5rsNsKUEeh_NagiyT6598yMxac",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"courseId\": \"68bf4fbc43e9487c9d55e490\",\r\n  \"pay\": 500\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/api/purchase/buy",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"purchase",
+								"buy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my purchase  course with user token Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlYXIubWFobXVkdWxAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NTczOTcxMzgsImV4cCI6MTc1ODI2MTEzOH0.uKUbTo_upVeeU7U9J5rsNsKUEeh_NagiyT6598yMxac",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-url}}/api/purchase/my",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"purchase",
+								"my"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all purchase course with user token Copy 2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlYXIubWFobXVkdWxAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NTczOTcxMzgsImV4cCI6MTc1ODI2MTEzOH0.uKUbTo_upVeeU7U9J5rsNsKUEeh_NagiyT6598yMxac",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local-url}}/api/purchase/my",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"api",
+								"purchase",
+								"my"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local-url}}",
+					"host": [
+						"{{local-url}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
