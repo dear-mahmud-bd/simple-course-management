@@ -122,9 +122,9 @@ src/
 
 ---
 
-## 📊 API Endpoints
+# 📊 API Endpoints
 
-### **User Management**
+## **User Management**
 
 #### Create a Admin
 
@@ -181,6 +181,7 @@ src/
   }
   ```
 ---
+
 #### Logout a User
 
 - Method: **POST** `/api/auth/logout`
@@ -188,7 +189,7 @@ src/
 
 ---
 
-### **Course Management**
+## **Course Management**
 
 #### Create a Course
 
@@ -227,19 +228,20 @@ src/
 
 ---
 
-### Get All Course
+#### Get All Course
 
 - **Method:** **GET** `/api/course`
 - Request Header : **Authorization : Bearer token**
 
 ---
 
-### Get a Single Course
+#### Get a Single Course
 
 - **Method:** **GET** `/api/course/:courseId`
 - Request Header : **Authorization : Bearer token**
 
-### **Purchase System**
+
+## **Purchase System**
 
 #### Buy a Course
 
